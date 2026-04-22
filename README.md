@@ -82,8 +82,10 @@ Given a decomposition $D$, we define a generative process:
 2. Form a library of parts.
 3. Generate new graphs by substituting, recombining, or perturbing parts while respecting the abstract structure.
 
+As a concrete instantiation, we use a simple genetic algorithm over decomposed parts. At each step, we sample two generated instances, sampling them with probability proportional to $V$, and exchange compatible parts under $D$ to produce offspring. This keeps recomposition anchored to the abstract structure while biasing search toward higher-value regions.
+
 This induces a *local future space*:
-$$\mathcal{N}_D(G) = \{ G' : G' \text{ reachable from } G \text{ by recomposition under } D \}.$$
+$$\mathcal{N}_D(G) = \{ G' : G' \text{ reachable from } G \text{ by recomposition under } D  \text{ in a finite number of steps} \}.$$
 
 The creativity of $D$ is then linked to:
 
